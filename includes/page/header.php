@@ -1,7 +1,7 @@
 <?php
 
 require_once("includes/database/DatabaseConnection.php");
-$connection = DatabaseConnection::getDatabaseconnection();
+$connection = DatabaseConnection::getConnection();
 ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -3,15 +3,15 @@
 
 require_once("includes/page/header.php");
 
-print_r($connection->getPdo());
+$connection = DatabaseConnection::getConnection();
 
 if (isset($_POST["username"], $_POST["fullName"], $_POST["password"])){
     $reg_statment = $connection->getPdo()->prepare("INSERT INTO user (user, full_name, password, user_token) VALUES (?, ?, ?, ?)");
     $reg_statment->execute([
         $_POST["username"], 
         $_POST["fullName"], 
-       sha1( $_POST["password"]),
-       md5(mt_rand(), true)
+        sha1($_POST["password"]),
+        md5(mt_rand(), true)
     ]);
 }
 ?>
